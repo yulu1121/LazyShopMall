@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <include android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/common_toolbar_layout"
+        layout="@layout/common_toolbar"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/age_text_one"
+                android:gravity="center"
+                android:textSize="20sp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/age_text_two"
+                android:gravity="center"
+                android:text="只需2秒\t发现更适合自己的好货"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="2"
+        android:layout_marginBottom="@dimen/dimen_50_dip"
+        >
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="6"
+            android:id="@+id/age_radio_group"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <RadioButton style="@style/Age_RadioButton"
+                android:text="90后"
+                android:id="@+id/nine_age"
+                />
+
+            <RadioButton style="@style/Age_RadioButton"
+                android:text="80后"
+                android:id="@+id/eight_age"
+                />
+
+            <RadioButton style="@style/Age_RadioButton"
+                android:text="70后"
+                android:id="@+id/seven_age"
+                />
+
+            <RadioButton style="@style/Age_RadioButton"
+                android:text="都不是"
+                android:id="@+id/noting_age"
+                />
+        </RadioGroup>
+
+        <com.anshi.lazyshopmall.self_view.EaseImageView
+        android:layout_width="0dp"
+        android:layout_marginEnd="@dimen/dimen_20_dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/dimen_50_dip"
+        app:ease_shape_type="rectangle"
+        app:ease_border_width="@dimen/dimen_10_dip"
+        android:id="@+id/age_select_image"
+        />
+
+
+    </LinearLayout>
+
+</LinearLayout>

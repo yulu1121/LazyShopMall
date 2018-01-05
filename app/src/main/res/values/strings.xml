@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LazyShopMall</string>
+    <string name="lazy_shop_mall_travel">开启闲城之旅</string>
+    <string name="please_select_age">选择年龄</string>
+    <string name="please_select_out">请退出重新选择</string>
+    <string name="next_page">下一页</string>
+    <string name="up_slide">向上滑动</string>
+    <string name="jump">跳过</string>
+    <string name="lazy_shop_buy">闲城省心够</string>
+    <string name="agree_shop">同意注册并遵守牙城《用户协议》</string>
+</resources>

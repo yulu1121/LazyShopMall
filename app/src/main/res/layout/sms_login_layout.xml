@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.anshi.lazyshopmall.self_view.EaseImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/head"
+        android:id="@+id/person_head"
+        android:layout_marginTop="@dimen/dimen_20_dip"
+        android:layout_gravity="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/dimen_20_dip"
+        >
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:layout_weight="5"
+            android:hint="输入手机号"
+            android:textSize="15sp"
+            android:id="@+id/input_phone_sms"
+            android:textColorHint="@color/grey"
+            android:gravity="center"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:button="@null"
+            android:text="获取验证码"
+            android:textColor="@color/lazy_shop_color_main"
+            android:gravity="center"
+            android:id="@+id/sms_has_verification"
+            />
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_back_white"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/dimen_20_dip"
+        android:layout_marginEnd="@dimen/dimen_20_dip"
+        android:hint="输入验证码"
+        android:layout_marginTop="@dimen/dimen_10_dip"
+        android:textColorHint="@color/grey"
+        android:id="@+id/how_long_seconds"
+
+        />
+
+    <Button
+        android:id="@+id/sms_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/dimen_20_dip"
+        android:layout_marginStart="@dimen/dimen_20_dip"
+        android:layout_marginTop="@dimen/dimen_30_dip"
+        android:background="@drawable/normal_login"
+        android:text="@string/login"
+        android:textColor="@color/white" />
+</LinearLayout>

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import com.anshi.lazyshopmall.R;
+import com.anshi.lazyshopmall.utils.StatusBarUtils;
 import com.anshi.lazyshopmall.utils.ToastUtils;
 
 /**
@@ -24,6 +26,11 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        StatusBarUtils.setWindowStatusBarColor(this, R.color.lazy_shop_color_main);
+    }
 
     @Override
     protected void onPause() {

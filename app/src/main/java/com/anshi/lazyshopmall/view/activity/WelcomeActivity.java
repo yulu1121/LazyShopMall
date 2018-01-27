@@ -1,11 +1,12 @@
 package com.anshi.lazyshopmall.view.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
-
 import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -20,10 +21,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anshi.lazyshopmall.R;
-import com.anshi.lazyshopmall.common.BaseActivity;
 import com.anshi.lazyshopmall.common.ContentViewAdapter;
 import com.anshi.lazyshopmall.utils.Constants;
-
+import com.anshi.lazyshopmall.utils.SharedPreferenceUtils;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.listener.DexterError;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
+import com.karumi.dexter.listener.multi.CompositeMultiplePermissionsListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +40,7 @@ import me.kaelaela.verticalviewpager.transforms.DefaultTransformer;
  * Created by yulu on 2018/1/3.
  */
 
-public class WelcomeActivity extends BaseActivity {
+public class WelcomeActivity extends AppCompatActivity {
     private VerticalViewPager verticalViewPager;
     private List<View> views;
     private Button nextBtn;
@@ -57,6 +61,12 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Dexter.withActivity(this).withPermissions(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION).
+                withListener(new CompositeMultiplePermissionsListener()).withErrorListener(new PermissionRequestErrorListener() {
+            @Override
+            public void onError(DexterError error) {
+            }
+        }).check();
         setContentView(R.layout.welcome_activity_main);
         initView();
         initData();
@@ -73,6 +83,9 @@ public class WelcomeActivity extends BaseActivity {
         backView = second.findViewById(R.id.common_toolbar_layout);
         backView.findViewById(R.id.back_include).setVisibility(View.GONE);
         mTextView = backView.findViewById(R.id.toolbar_text);
+        String city = SharedPreferenceUtils.getString(this, "city");
+        TextView cityText = backView.findViewById(R.id.city_text);
+        cityText.setText(city);
         mTextView.setText(R.string.lazy_shop_mall_travel);
         mJumpNext = backView.findViewById(R.id.common_jump_next);
         man = second.findViewById(R.id.man_rb);
@@ -82,7 +95,7 @@ public class WelcomeActivity extends BaseActivity {
         verticalViewPager.setPageTransformer(false, new DefaultTransformer());
     }
     //在选择性别后，第三个界面进行初始化
-    private View initAgePage(String type){
+    private View initAgePage(final String type){
         String text = getString(R.string.please_select_age);
         SpannableString spannableString = new SpannableString(text);
         spannableString.setSpan(new ForegroundColorSpan(Color.RED),2,text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -105,6 +118,8 @@ public class WelcomeActivity extends BaseActivity {
         mAgeJumpNext = ageBackView.findViewById(R.id.common_jump_next);
         TextView mTextView = ageBackView.findViewById(R.id.toolbar_text);
         mTextView.setText(R.string.lazy_shop_mall_travel);
+        TextView cityText = ageBackView.findViewById(R.id.city_text);
+        cityText.setText(SharedPreferenceUtils.getString(this,"city"));
         mAgeJumpNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +130,7 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                intent.putExtra("sex",type);
                 switch (checkedId){
                     case R.id.nine_age:
                         eightAge.setChecked(false);

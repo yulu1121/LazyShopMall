@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContentFragmentAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragments = new ArrayList<>();
-
-    public ContentFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
+    private List<Fragment> fragments;
+    private List<String> mTitles;
+    public ContentFragmentAdapter(FragmentManager fm, List<Fragment> fragments,List<String> mTitles) {
         super(fm);
         this.fragments = fragments;
+        this.mTitles = mTitles;
     }
 
     @Override
@@ -24,4 +25,8 @@ public class ContentFragmentAdapter extends FragmentPagerAdapter {
         return fragments.size();
     }
 
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mTitles.get(position);
+    }
 }

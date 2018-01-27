@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.anshi.lazyshopmall.self_view.HomeGridView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:numColumns="5"
+        android:id="@+id/main_head_grid_recycler"
+        android:verticalSpacing="@dimen/dimen_10_dip"
+        android:stretchMode="columnWidth"
+        android:listSelector="@android:color/transparent"
+        />
+</LinearLayout>

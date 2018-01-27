@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20_dip"
+        android:id="@+id/left_drawer_footer_recycler"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="@dimen/dimen_20_dip"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:paddingStart="@dimen/dimen_10_dip"
+            android:button="@null"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/pg_main_goods"
+            android:id="@+id/buyer_rb"
+            android:text="买家中心"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginStart="@dimen/dimen_10_dip"
+            android:button="@null"
+            android:drawableStart="@drawable/pg_main_heart"
+            android:id="@+id/seller_rb"
+            android:text="商家服务"
+            />
+    </LinearLayout>
+
+</LinearLayout>

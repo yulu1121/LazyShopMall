@@ -7,6 +7,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#FF0000</color>
+    <color name="text_main_color">#d81e06</color>
     <color name="darkgrey">#6C6C6C</color>
     <color name="grey">#ACACAC</color>
     <color name="lightgrey">#ECECEC</color>
@@ -14,4 +15,6 @@
     <color name="blue">#0074A6</color>
     <color name="item_divider_color">#cccccc</color>
     <color name="keyboard_pressed_color">#ffbadaff</color>
+    <color name="partTranslucent">#39000000</color>
+    <color name="shop_grey">#EBEBEB</color>
 </resources>

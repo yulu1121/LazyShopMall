@@ -16,12 +16,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -134,5 +132,39 @@ public class Utils {
     }
 
 
+    public static boolean isMobileNO(String phone) {
+       /*
+    移动：134、135、136、137、138、139、150、151、157(TD)、158、159、187、188
+    联通：130、131、132、152、155、156、185、186
+    电信：133、153、180、189、（1349卫通）
+    总结起来就是第一位必定为1，第二位必定为3或5或8，其他位置的可以为0-9
+    */
+        String telRegex = "[1][358]\\d{9}";//"[1]"代表第1位为数字1，"[358]"代表第二位可以为3、5、8中的一个，"\\d{9}"代表后面是可以是0～9的数字，有9位。
+        return !TextUtils.isEmpty(phone) && phone.matches(telRegex);
+    }
+    /*
+* 毫秒转化
+*/
+    public static String formatTime(long ms) {
 
+        int ss = 1000;
+        int mi = ss * 60;
+        int hh = mi * 60;
+        int dd = hh * 24;
+
+        long day = ms / dd;
+        long hour = (ms - day * dd) / hh;
+        long minute = (ms - day * dd - hour * hh) / mi;
+        long second = (ms - day * dd - hour * hh - minute * mi) / ss;
+        long milliSecond = ms - day * dd - hour * hh - minute * mi - second * ss;
+
+        String strDay = day < 10 ? "0" + day : "" + day; //天
+        String strHour = hour < 10 ? "0" + hour : "" + hour;//小时
+        String strMinute = minute < 10 ? "0" + minute : "" + minute;//分钟
+        String strSecond = second < 10 ? "0" + second : "" + second;//秒
+        String strMilliSecond = milliSecond < 10 ? "0" + milliSecond : "" + milliSecond;//毫秒
+        strMilliSecond = milliSecond < 100 ? "0" + strMilliSecond : "" + strMilliSecond;
+
+        return strDay+"天"+strHour+"小时"+strMinute +"分钟" + strSecond + "秒";
+    }
 }

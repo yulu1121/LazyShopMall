@@ -9,6 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/easycountdowntextureview" />
+            <option value="$PROJECT_DIR$/indexlib" />
+            <option value="$PROJECT_DIR$/marqueelibrary" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
